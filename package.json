@@ -1,0 +1,22 @@
+{
+  "name": "licenta",
+  "version": "1.0.0",
+  "description": "lucrare licenta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarinaMatei/Licenta.git"
+  },
+  "author": "carina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarinaMatei/Licenta/issues"
+  },
+  "homepage": "https://github.com/CarinaMatei/Licenta#readme",
+  "dependencies": {
+    "react-native-cli": "^2.0.1"
+  }
+}
