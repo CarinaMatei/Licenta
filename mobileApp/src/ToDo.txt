@@ -1,5 +1,13 @@
-Sign In Page: 
-    -textField username, password, re-password
-    -Button create user, back
+#docs
+https://github.com/react-native-community/react-native-maps
 
-    createUser button on press -> function check usename length, pass === rePass
+
+#credentials: Maps API : AIzaSyAj-46TLTEDD3Yuh-bQnp5B_pmv5iIISO8
+
+
+
+#ToRead 
+-GET, POST, PUT
+-Javascript Promises
+
+#couchbase username: Administrator pass: parola

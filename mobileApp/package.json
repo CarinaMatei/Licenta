@@ -7,8 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "geolib": "^2.0.24",
     "react": "16.6.3",
-    "react-native": "0.58.4"
+    "react-native": "0.58.4",
+    "react-native-maps": "^0.23.0"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
