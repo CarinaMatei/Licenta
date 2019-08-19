@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, TextInput, StyleSheet, ImageBackground } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, StyleSheet, ImageBackground, Image } from 'react-native';
 
 export default class SignInPage extends Component {
     constructor(props) {
@@ -25,32 +25,39 @@ export default class SignInPage extends Component {
           <ImageBackground 
                 source={require("/Licenta/mobileApp/assets/imgs/signInBack.jpg")}
                 style={{width: '100%', height: '100%'}}>
+            <TouchableOpacity 
+                style={styles.backButton} 
+                onPress={() => {this.props.backFn()}}>
+                <Image source={require("/Licenta/mobileApp/assets/icons/backSignIn.png")}></Image>
+            </TouchableOpacity>
             <View style={styles.content}>
+                <Image
+                  style={styles.logo}
+                  source={require("/Licenta/mobileApp/assets/icons/logo.png")}
+                />
                 <Text style={styles.signInTitle}>Sign in</Text>
                 <TextInput
                     style={styles.inputField}
                     placeholder={'Username'}
-                    onChangeText={(text) => this.setState({username:text})}
-                ></TextInput>
+                    onChangeText={(text) => this.setState({username:text})}>
+                </TextInput>
                 <TextInput
                     style={styles.inputField}
                     placeholder={'Password'}
                     secureTextEntry={true}
-                    onChangeText={(text) => this.setState({password:text})}
-                ></TextInput>
+                    onChangeText={(text) => this.setState({password:text})}>
+                </TextInput>
                 <TextInput
                     style={styles.inputField}
                     placeholder={'Retype password'}
                     secureTextEntry={true}
-                    onChangeText={(text) => this.setState({re_password:text})}
-                ></TextInput>
+                    onChangeText={(text) => this.setState({re_password:text})}>
+                </TextInput>
                 <TouchableOpacity 
                     style={styles.signInButton}
-                    onPress={() => {this.signInFn()}}
-                >
+                    onPress={() => {this.signInFn()}}>
                     <Text style={styles.signInText}>Create user</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {this.props.backFn()}}><Text>Inapoi</Text></TouchableOpacity>
             </View>
           </ImageBackground>
         );
@@ -61,6 +68,11 @@ export default class SignInPage extends Component {
         content: {
           flex: 1,
           flexDirection: 'column',
+          justifyContent: 'center',
+        },
+        logo: {
+          marginLeft: 170,
+          alignItems: 'center',
           justifyContent: 'center',
         },
         signInTitle: {
@@ -78,9 +90,9 @@ export default class SignInPage extends Component {
           height: 50,
           marginRight: 20,
           marginLeft: 20,
-          backgroundColor: "#04B4AE",
+          backgroundColor: "#01b4ae",
           borderWidth: 0.5,
-          borderColor: '#04B4AE',
+          borderColor: '#01b4ae',
           borderRadius: 5,
           alignItems: 'center',
           paddingTop: 10,
@@ -93,11 +105,18 @@ export default class SignInPage extends Component {
         inputField: {
           fontSize: 18,
           height: 40,
+          color: '#ffffff',
           marginRight: 20,
           marginLeft: 20,
           borderWidth: 0.5,
-          borderColor: '#000',
+          borderColor: '#ffffff',
           borderRadius: 5,
           marginBottom: 10
+        },
+        backButton: {
+          width: 15, 
+          height: 15,
+          marginTop: 20,
+          marginLeft: 5
         }
       });

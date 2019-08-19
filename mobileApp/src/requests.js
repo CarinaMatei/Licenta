@@ -1,4 +1,4 @@
-const API_HOST = "http://192.168.215.226:5000"; //change to your current ip address
+const API_HOST = "http://192.168.100.6:5000"; //change to your current ip address
 
 export default {
     async getObjectives() {

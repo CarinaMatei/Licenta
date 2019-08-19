@@ -30,6 +30,12 @@ export default class ObjectiveCard extends Component {
       <TouchableOpacity style={styles.cardStyle} onPress={() => {this.props.clickFn(this.props.data)}}>
         <BackgroundImage imgUrl={"/Licenta/mobileApp/assets/imgs/pic1.jpg"}>
           <View style={styles.content}>
+          <View style={styles.rewardElement}>
+            <Text style={styles.rewardText}>{this.props.data.reward}</Text>
+          </View>
+          <View style={styles.priceElement}>
+            <Text style={styles.rewardText}>{this.props.data.price}</Text>
+          </View>
             <View style={styles.textHolder}>
                 <Text style={styles.imageTitle}>{this.props.data.title}</Text>
                 <View style={styles.iconContainer}>
@@ -53,8 +59,8 @@ const styles = StyleSheet.create({
       borderColor: '#d6d7da',
     },
     locationImg: {
-      width: 30,
-      height: 30
+      width: 15,
+      height: 15
     },
     backgroundImgStyle: {
       flex:1,
@@ -92,5 +98,42 @@ const styles = StyleSheet.create({
       fontSize: 15,
       color: '#333',
       paddingLeft: 3
+    },
+    rewardText: {
+      color: '#fff',
+      fontSize: 18,
+      fontWeight: 'bold'
+    },
+    rewardElement: {
+      display: 'flex',
+      position: 'absolute',
+      top:15,
+      right: 44,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#e6709d',
+      borderBottomLeftRadius: 15,
+      borderTopLeftRadius: 15,
+      borderColor: '#fff',
+      borderWidth: 1,
+      width: 30,
+      height: 30,
+      zIndex: 100
+    },
+    priceElement: {
+      display: 'flex',
+      position: 'absolute',
+      top:15,
+      right: 15,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#01b4ae',
+      borderBottomRightRadius: 15,
+      borderTopRightRadius: 15,
+      borderColor: '#fff',
+      borderWidth: 1,
+      width: 30,
+      height: 30,
+      zIndex: 100
     }
   });

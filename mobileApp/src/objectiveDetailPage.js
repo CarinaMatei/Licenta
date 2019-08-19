@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView, Linking } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, ScrollView, Linking, ImageBackground } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import Stars from 'react-native-stars';
 
 export default class ObjectiveDetailPage extends Component {
     constructor(props) {
@@ -14,6 +15,9 @@ export default class ObjectiveDetailPage extends Component {
     return (
         <View>
           <View style={styles.header}>
+            <ImageBackground 
+                    source={require("/Licenta/mobileApp/assets/imgs/signInBack.jpg")}
+                    style={{width: '100%', height: '100%'}}>
             <View style={styles.headerContent}>
               <TouchableOpacity style={styles.backButton} onPress={() => {this.props.backFunction()}}>
                 <Image
@@ -25,6 +29,7 @@ export default class ObjectiveDetailPage extends Component {
                 <Text style={styles.title}>{this.props.data.title}</Text>
               </View>
             </View>
+            </ImageBackground>
           </View>
           <ScrollView style={{marginBottom: 50}}>
             <Image
@@ -34,7 +39,7 @@ export default class ObjectiveDetailPage extends Component {
             />
             <Text style={styles.imageTitle}> {this.props.data.title}</Text>
             <View style={styles.infoView}>
-              <Text style={styles.infoTitle}>Informatii</Text>
+              <Text style={styles.infoTitle}>Informations</Text>
               <Text style={styles.info}>
                 <Image source={require("/Licenta/mobileApp/assets/icons/location.png")}>
                 </Image>  {this.props.data.address}
@@ -67,7 +72,21 @@ export default class ObjectiveDetailPage extends Component {
                   </Image>  {this.props.data.web}
                 </Text>
               </TouchableOpacity>                   
-              <Text style={styles.info}> Rating: {this.props.data.rating}</Text>
+              
+              <View style={{flex:1, flexDirection:"row", marginBottom: 10}}>
+                <Text style={styles.infoRating}> Rating:</Text>
+                  <View style={{marginTop: 10}}>
+                    <Stars
+                        half={true}
+                        default={this.props.data.rating/10}
+                        spacing={4}
+                        starSize={25}
+                        count={5}
+                        fullStar={require('/Licenta/mobileApp/assets/icons/star.png')}
+                        emptyStar={require('/Licenta/mobileApp/assets/icons/starempty.png')}
+                        halfStar={require('/Licenta/mobileApp/assets/icons/starhalf.png')}/>
+                  </View>
+              </View>
             </View>
 
             <MapView style={{height:300}}
@@ -83,9 +102,12 @@ export default class ObjectiveDetailPage extends Component {
               title="title"
               description="desc"
             />
-            <TouchableOpacity style={styles.navigateButton} onPress={() => Linking.openURL('google.navigation:q=' + objectiveLocation.lat + ',' + objectiveLocation.long)}><Text style={styles.navigateText}>Navigheaza</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.navigateButton} 
+                onPress={() => Linking.openURL('google.navigation:q=' + objectiveLocation.lat + ',' + objectiveLocation.long)}>
+              <Text style={styles.navigateText}>Navigate</Text></TouchableOpacity>
+
             <View style={styles.infoView}>
-              <Text style={styles.infoTitle}>Descriere</Text>
+              <Text style={styles.infoTitle}>Description</Text>
               <Text style={styles.info}>{this.props.data.description}</Text>
             </View>
           </ScrollView>
@@ -106,7 +128,7 @@ const styles = StyleSheet.create({
       flex: 1,
       width: "100%",
       height: 40,
-      backgroundColor: "#83adef"
+      backgroundColor: "#e6709d"
     },
     objImg: {
       height: 300,
@@ -121,7 +143,7 @@ const styles = StyleSheet.create({
       marginBottom: 5
     },
     header:{
-      backgroundColor: "#83adef",
+      backgroundColor: "#01b4ae",
       height: 50
     },
     title: {
@@ -157,6 +179,15 @@ const styles = StyleSheet.create({
     },
     info: {
       flex: 1,
+      fontSize: 15,
+      color: '#333',
+      marginBottom: 13,
+      marginLeft: 10,
+      marginTop: 10,
+      marginBottom: 10
+    },
+    infoRating: {
+      flex: 0.4,
       fontSize: 15,
       color: '#333',
       marginBottom: 13,
